@@ -33,3 +33,9 @@ print(False == 0) # True
 print(True != 1) # False
 print(False != 0) # False
 
+print (5<10 and 5<20) # True
+print (5<10 and 5>20) # False
+print(5< 10 or 5>20) # True
+print(5>10 or 5>20) # False
+print(5< 6< 7< 8< 9) # True
+
