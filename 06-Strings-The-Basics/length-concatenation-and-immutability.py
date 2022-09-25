@@ -9,3 +9,12 @@ print(name + " " + sirname + "!") # Ledjo Lleshaj!
 
 # name[0] = "l" # TypeError: 'str' object does not support item assignment Immutable
 print(name[0]) # L
+
+def long_word(str):
+    return len(str)> 7
+
+def first_longer_than_second(str1,str2):
+    return len(str1)>len(str2)
+
+print(long_word(name)) # False
+print(long_word(sirname)) # True
