@@ -17,3 +17,11 @@ def reverse_recursive(s):
 
 reversed = reverse_recursive("hello")
 print(f"The reverse of 'hello' is {reversed}.") # olleh
+
+def factorial(val):
+    if val == 1:
+        return val
+    else :
+        return factorial(val-1) * val
+
+print(factorial(5)) # 120
