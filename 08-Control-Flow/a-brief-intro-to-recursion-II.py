@@ -24,4 +24,4 @@ def factorial(val):
     else :
         return factorial(val-1) * val
 
-print(factorial(5)) # 120
+print(factorial(5)) 
