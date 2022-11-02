@@ -26,3 +26,4 @@ print(99.0 not in test_score) #False
 if 99.0 in test_score:
     print("The student passed the test.")
 
+print([1, 2] in [1, 2, 3])
