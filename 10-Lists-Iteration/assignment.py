@@ -95,3 +95,4 @@ def super_sum(list):
             total += el.find("s")
             
     return total
+
