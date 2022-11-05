@@ -113,12 +113,14 @@ def nested_sum(list):
 # for each string in the values list.
 values = ["3.14", "9.99", "567.324", "5.678"]
 floats = [float(el) for el in values]
-#[for val in values if val]
+
+
 # The letters variable should store a list of 5 strings. 
 # Each of the strings should be a character from name concatenated together 3 times.
 # i.e. ['BBB', 'ooo', 'rrr', 'iii', 'sss']
 name = "Boris"
-letters = [char+char+char for char in name]
+letters = [char * 3 for char in name]
+# letters = [char+char+char for char in name]
 
 
 # The 'lengths' list should store a list with the lengths
