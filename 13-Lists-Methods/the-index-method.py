@@ -13,3 +13,5 @@ print(pizzas.index('sausage')) # 2
 
 pizzas.lower()
 print(pizzas.index('cheese')) # 1
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
