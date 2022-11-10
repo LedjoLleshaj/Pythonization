@@ -1,4 +1,6 @@
 animals = ["cat", "dog", "fish", "bird"]
+def is_long_animal(animal):
+    return len(animal) > 3
 
 
 #for fiter function to work, it needs a function and a list
@@ -10,5 +12,3 @@ print(long_words)
 long_words = list(filter(is_long_animal, animals))
 print(long_words)
 
-def is_long_animal(animal):
-    return len(animal) > 3
