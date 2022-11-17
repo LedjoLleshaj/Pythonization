@@ -23,3 +23,6 @@ def area_of_circle(r):
 if __name__ == "__main__":
     print("I am a module")
     print("I am not supposed to be executed directly")
+
+_year = 2020 # private variable (not accessible from outside the module)
+
