@@ -4,7 +4,7 @@ disney_characters = {
     "Goofy"
 }
 disney_characters.add("Minnie Mouse")
-disney_characters.add("Minnie Mouse")
+# disney_characters.add(["Minnie Mouse"]) # TypeError: unhashable type: 'list'
 print(disney_characters)
 
 disney_update = {
