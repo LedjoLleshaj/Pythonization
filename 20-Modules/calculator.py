@@ -20,4 +20,6 @@ def divide(a, b):
 def area_of_circle(r):
     return PI * r * r
 
-print(add(1, 2))
+if __name__ == "__main__":
+    print("I am a module")
+    print("I am not supposed to be executed directly")
