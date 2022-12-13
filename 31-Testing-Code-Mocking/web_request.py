@@ -1,7 +1,7 @@
-# import urllib.request
 from urllib.request import urlopen
 
-class WebRequest():
+
+class WebRequest:
     def __init__(self, url):
         self.url = url
 
@@ -9,5 +9,5 @@ class WebRequest():
         response = urlopen(self.url)
         if response.status == 200:
             return "SUCCESS"
-
-        return "FAILURE"
+        else:
+            return "FAILURE"
