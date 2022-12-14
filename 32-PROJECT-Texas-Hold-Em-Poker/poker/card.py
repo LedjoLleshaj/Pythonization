@@ -1,5 +1,5 @@
 class Card:
-    SUITS = ["Spades", "Clubs", "Diamonds", "Hearts"]
+    SUITS = ["Hearts", "Clubs", "Spades", "Diamonds"]
     RANKS = [
         "2",
         "3",
@@ -16,6 +16,10 @@ class Card:
         "Ace",
     ]
 
+    @classmethod
+    def create_standard_52_cards(cls):
+        return [cls(rank, suit) for suit in cls.SUITS for rank in cls.RANKS]
+
     def __init__(self, rank, suit):
         if rank not in self.RANKS:
             raise ValueError(f"Invalid rank {rank}")
@@ -30,3 +34,6 @@ class Card:
 
     def __repr__(self):
         return f"Card('{self.rank}', '{self.suit}')"
+
+    def __eq__(self, other):
+        return self.rank == other.rank and self.suit == other.suit
