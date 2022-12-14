@@ -9,7 +9,7 @@ class Deck:
         self.cards.extend(cards)
 
     def create_cards(self):
-        cards = Card.create_52_cards()
+        cards = Card.create_standard_52_cards()
 
         # for suit in Card.SUITS:
         #     for rank in Card.RANKS:
