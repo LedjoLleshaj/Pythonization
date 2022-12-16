@@ -1,4 +1,5 @@
 from poker.card import Card
+import random
 
 
 class Deck:
@@ -8,12 +9,14 @@ class Deck:
     def add_cards(self, cards):
         self.cards.extend(cards)
 
-    def create_cards(self):
-        cards = Card.create_standard_52_cards()
+    def shuffle(self):
+        """
+        another way to do this would be by dependecy injection
+        and passing the random.shuffle function as a parameter
+        """
+        random.shuffle(self.cards)
 
-        # for suit in Card.SUITS:
-        #     for rank in Card.RANKS:
-        #         cards.append(Card(rank, suit))
-        # this way deck class knows too much about card class
-        # we want to have as much indipedence as possible between classes
-        self.add_cards(cards)
+    def remove_cards(self, number):
+        cards_to_remove = self.cards[:number]
+        del self.cards[:number]
+        return cards_to_remove
