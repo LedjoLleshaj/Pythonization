@@ -6,6 +6,13 @@ from poker.deck import Deck
 
 
 class DeckTest(unittest.TestCase):
+    def test_has_length_equal_to_count_of_cards(self):
+        deck = Deck()
+        self.assertEqual(len(deck), 0)
+
+        deck.cards = [MagicMock(), MagicMock()]
+        self.assertEqual(len(deck), 2)
+
     def test_stores_no_cards_at_start(self):
         deck = Deck()
         self.assertEqual(deck.cards, [])

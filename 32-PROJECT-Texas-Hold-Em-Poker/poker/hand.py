@@ -8,6 +8,9 @@ class Hand:
         copy.sort()
         self.cards = copy
 
+    def __repr__(self):
+        return (", ").join([str(card) for card in self.cards])
+
     @property
     def _rank_validations_from_best_to_worst(self):
         return (

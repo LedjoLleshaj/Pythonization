@@ -18,4 +18,4 @@ players = [player1, player2]
 game_round = GameRound(deck=deck, players=players)
 game_round.play()
 
-# from main import deck, cards, hand1, hand2, player1, player2
+# from main import deck, cards, hand1, hand2, player1, player2, game_round
