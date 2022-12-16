@@ -17,6 +17,7 @@ class Hand:
             ("Two Pair", self._two_pair),
             ("Pair", self._pair),
             ("High Card", self._high_card),
+            ("No Cards", self._no_cards),
         )
 
     def best_rank(self):
@@ -51,14 +52,13 @@ class Hand:
 
     # Validation methods
     def _royal_flush(self):
-        return (
-            self._straight_flush()
-            and self.cards[0].rank == "10"
-            and self.cards[-1].rank == "Ace"
-        )
+        if not self._straight_flush():
+            return False
+
+        return self.cards[0].rank == "10" and self.cards[-1].rank == "Ace"
 
     def _straight_flush(self):
-        return self._straight() and self._flush() and len(self.cards) == 5
+        return self._straight() and self._flush()
 
     def _four_of_a_kind(self):
         return len(self._ranks_with_count(4)) == 1
@@ -72,16 +72,18 @@ class Hand:
         suits_that_occur_five_times = {
             suit
             for suit, suit_count in self._card_suit_counts.items()
-            if suit_count == 5
+            if suit_count >= 5
         }
-        return len(suits_that_occur_five_times) == 1 and len(self.cards) == 5
+        return len(suits_that_occur_five_times) == 1
 
     def _straight(self):
+        if len(self.cards) < 5:
+            return False
         rank_indexes = [card.rank_index for card in self.cards]
         straight_consecutive_indexes = list(
             range(rank_indexes[0], rank_indexes[-1] + 1)
         )
-        return rank_indexes == straight_consecutive_indexes and len(rank_indexes) == 5
+        return rank_indexes == straight_consecutive_indexes
 
     def _three_of_a_kind(self):
         ranks_with_three_of_a_kind = self._ranks_with_count(3)
@@ -96,4 +98,7 @@ class Hand:
         return len(ranks_with_pairs) == 1
 
     def _high_card(self):
-        return True  # All hands have a high card
+        return len(self.cards) >= 2
+
+    def _no_cards(self):
+        return len(self.cards) == 0
