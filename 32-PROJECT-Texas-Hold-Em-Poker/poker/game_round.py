@@ -10,6 +10,13 @@ class GameRound:
         self._make_bets()
 
         self._deal_flop_cards()
+        self._make_bets()
+
+        self._deal_turn_card()
+        self._make_bets()
+        
+        self._deal_river_card()
+        self._make_bets()
 
     def _shuffle_deck(self):
         self.deck.shuffle()
@@ -25,7 +32,17 @@ class GameRound:
             if player.wants_to_fold():
                 self.players.remove(player)
 
-    def _deal_flop_cards(self):
-        community_cards = self.deck.remove_cards(3)
+    def _deal_community_cards(self, number_of_cards):
+        community_cards = self.deck.remove_cards(number_of_cards)
         for player in self.players:
             player.add_cards(community_cards)
+
+    def _deal_flop_cards(self):
+        self._deal_community_cards(3)
+
+    def _deal_turn_card(self):
+        self._deal_community_cards(1)
+
+    def _deal_river_card(self):
+        self._deal_community_cards(1)
+    
