@@ -7,4 +7,4 @@ class HighCardValidator:
         return len(self.cards) >= 2
 
     def valid_cards(self):
-        return self.cards[-1:]
+        return self.cards[-1:]  # returns the last card in the list as a list

@@ -1,6 +1,7 @@
-from poker.validators import HighCardValidator
-class Hand:
+from poker.validators import HighCardValidator, NoCardsValidator, PairValidator
 
+
+class Hand:
     def __init__(self):
         self.cards = []
 
@@ -24,9 +25,9 @@ class Hand:
             ("Straight", self._straight),
             ("Three of a Kind", self._three_of_a_kind),
             ("Two Pair", self._two_pair),
-            ("Pair", self._pair),
+            ("Pair", PairValidator(self.cards).is_valid),
             ("High Card", HighCardValidator(self.cards).is_valid),
-            ("No Cards", self._no_cards),
+            ("No Cards", NoCardsValidator(self.cards).is_valid),
         )
 
     def best_rank(self):
@@ -73,9 +74,7 @@ class Hand:
         return len(self._ranks_with_count(4)) == 1
 
     def _full_house(self):
-        return (
-            len(self._ranks_with_count(3)) == 1 and len(self._ranks_with_count(2)) == 1
-        )
+        return self._three_of_a_kind() and PairValidator(self.cards).is_valid()
 
     def _flush(self):
         suits_that_occur_five_times = {
@@ -101,10 +100,3 @@ class Hand:
     def _two_pair(self):
         ranks_with_pairs = self._ranks_with_count(2)
         return len(ranks_with_pairs) == 2
-
-    def _pair(self):
-        ranks_with_pairs = self._ranks_with_count(2)
-        return len(ranks_with_pairs) == 1
-
-    def _no_cards(self):
-        return len(self.cards) == 0
