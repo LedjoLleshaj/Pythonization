@@ -1,7 +1,7 @@
 class RankValidator:
     def _ranks_with_count(self, count):
         return {
-            rank
+            rank: rank_count
             for rank, rank_count in self._card_rank_counts.items()
             if rank_count == count
         }
