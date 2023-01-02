@@ -26,27 +26,6 @@ class handTest(unittest.TestCase):
         hand.add_cards(cards)
         self.assertEqual(hand.cards, [king_of_spades, ace_of_spades])
 
-    def test_does_not_consider_two_consecutive_cards_as_straight(self):
-        cards = [
-            Card(rank="6", suit="Spades"),
-            Card(rank="7", suit="Hearts"),
-        ]
-        hand = Hand()
-        hand.add_cards(cards)
-        self.assertEqual(hand.best_rank(), "High Card")
-
-    def test_figures_out_flush_is_best_rank(self):
-        cards = [
-            Card(rank="6", suit="Spades"),
-            Card(rank="8", suit="Spades"),
-            Card(rank="3", suit="Spades"),
-            Card(rank="Jack", suit="Spades"),
-            Card(rank="5", suit="Spades"),
-        ]
-        hand = Hand()
-        hand.add_cards(cards)
-        self.assertEqual(hand.best_rank(), "Flush")
-
     def test_figures_out_full_house_is_best_rank(self):
         cards = [
             Card(rank="6", suit="Spades"),

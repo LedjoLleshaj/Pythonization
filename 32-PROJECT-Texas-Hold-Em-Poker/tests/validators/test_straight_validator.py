@@ -28,3 +28,12 @@ class StraightValidatorTest(unittest.TestCase):
             validator.valid_cards(),
             [self.seven, self.eight, self.nine, self.ten, self.jack],
         )
+
+    def test_does_not_consider_two_consecutive_cards_as_straight(self):
+        cards = [
+            Card(rank="6", suit="Spades"),
+            Card(rank="7", suit="Hearts"),
+        ]
+
+        validator = StraightValidator(cards=cards)
+        self.assertEqual(validator.is_valid(), False)
