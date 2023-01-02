@@ -1,5 +1,6 @@
 # to simplify imports
 from .rank_validator import RankValidator
+from .five_card_ranks_in_a_row_validator import FiveCardRanksInARowValidator
 
 from .no_cards_validator import NoCardsValidator
 from .high_card_validator import HighCardValidator
@@ -10,3 +11,4 @@ from .straight_validator import StraightValidator
 from .flush_validator import FlushValidator
 from .full_house_validator import FullHouseValidator
 from .four_of_a_kind_validator import FourOfAKindValidator
+from .straight_flush_validator import StraightFlushValidator
