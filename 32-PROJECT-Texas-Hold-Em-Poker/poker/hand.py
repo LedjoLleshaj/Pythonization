@@ -1,4 +1,5 @@
 from poker.validators import (
+    FlushValidator,
     StraightValidator,
     ThreeOfAKindValidator,
     TwoPairValidator,
@@ -28,7 +29,7 @@ class Hand:
             ("Straight Flush", self._straight_flush),
             ("Four of a Kind", self._four_of_a_kind),
             ("Full House", self._full_house),
-            ("Flush", self._flush),
+            ("Flush", FlushValidator(self.cards).is_valid),
             ("Straight", StraightValidator(self.cards).is_valid),
             ("Three of a Kind", ThreeOfAKindValidator(self.cards).is_valid),
             ("Two Pair", TwoPairValidator(self.cards).is_valid),
@@ -75,7 +76,10 @@ class Hand:
         return self.cards[0].rank == "10" and self.cards[-1].rank == "Ace"
 
     def _straight_flush(self):
-        return StraightValidator(self.cards).is_valid() and self._flush()
+        return (
+            StraightValidator(self.cards).is_valid()
+            and FlushValidator(self.cards).is_valid()
+        )
 
     def _four_of_a_kind(self):
         return len(self._ranks_with_count(4)) == 1
@@ -85,11 +89,3 @@ class Hand:
             ThreeOfAKindValidator(self.cards).is_valid()
             and PairValidator(self.cards).is_valid()
         )
-
-    def _flush(self):
-        suits_that_occur_five_times = {
-            suit
-            for suit, suit_count in self._card_suit_counts.items()
-            if suit_count >= 5
-        }
-        return len(suits_that_occur_five_times) == 1
