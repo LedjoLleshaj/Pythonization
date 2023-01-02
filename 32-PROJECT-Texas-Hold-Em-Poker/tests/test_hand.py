@@ -32,10 +32,12 @@ class handTest(unittest.TestCase):
             VALIDATORS = (PairValidator,)  # comma is important to create the tuple
 
         hand = HandWithOneValidator()
+        ace_of_spades = Card(rank="Ace", suit="Spades")
+        ace_of_clubs = Card(rank="Ace", suit="Clubs")
         hand.add_cards(
             [
-                Card(rank="Ace", suit="Spades"),
-                Card(rank="Ace", suit="Clubs"),
+                ace_of_spades,
+                ace_of_clubs,
             ]
         )
-        self.assertEqual(hand.best_rank(), "Pair")
+        self.assertEqual(hand.best_rank(), (0, "Pair", [ace_of_clubs, ace_of_spades]))

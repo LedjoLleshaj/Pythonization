@@ -18,4 +18,13 @@ players = [player1, player2]
 game_round = GameRound(deck=deck, players=players)
 game_round.play()
 
-# from main import deck, cards, hand1, hand2, player1, player2, game_round
+for player in players:
+    print(f"{player.name} has {player.hand}")
+    index, hand_name, hand_cards = player.best_hand()
+    hand_cards_strings = [str(card) for card in hand_cards]
+    hand_cards_strings = (" and ").join(hand_cards_strings)
+    print(f"{player.name} has {hand_name} with {hand_cards_strings}")
+
+winning_player = max(players)
+
+print(f"{winning_player.name} wins!")

@@ -11,3 +11,7 @@ class Player:
 
     def wants_to_fold(self):
         return False
+
+    def __gt__(self, other):
+        """index is closer to 0, the better the hand"""
+        return self.best_hand() < other.best_hand()
