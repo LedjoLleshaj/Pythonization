@@ -1,5 +1,3 @@
-# job-search
-
 ## Walkthrough of all the exercises in the course
 
 ### Check all the chapters in the repository

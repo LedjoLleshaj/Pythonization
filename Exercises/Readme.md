@@ -1,0 +1,1 @@
+In this folder i am committing exercises and practice problems related to various programming concepts and languages. Each exercise is designed to help reinforce understanding and improve coding skills. Feel free to explore the different files and try out the exercises on your own!
