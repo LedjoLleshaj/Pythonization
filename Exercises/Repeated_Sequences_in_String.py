@@ -22,6 +22,7 @@ def find_repeated_sequences(text, min_length=2, min_occurrences=2):
             # Count this sequence
             if seq in sequences:
                 sequences[seq] += 1
+                print(f"Found sequence: '{seq}' (count: {sequences[seq]})")
             else:
                 sequences[seq] = 1
 
